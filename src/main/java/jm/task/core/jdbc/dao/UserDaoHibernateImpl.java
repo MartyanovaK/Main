@@ -24,7 +24,7 @@ public class UserDaoHibernateImpl implements UserDao, Serializable{
     public void createUsersTable() {
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            String sql = "CREATE TABLE IF NOT EXISTS User " +
+            String sql = "CREATE TABLE IF NOT EXISTS user " +
                     "(id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                     "name VARCHAR(50) NOT NULL, lastName VARCHAR(50) NOT NULL, " +
                     "age TINYINT NOT NULL)";
@@ -40,7 +40,7 @@ public class UserDaoHibernateImpl implements UserDao, Serializable{
     public void dropUsersTable() {
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            String sql = "DROP TABLE IF EXISTS User";
+            String sql = "DROP TABLE IF EXISTS user";
 
             Query query = session.createSQLQuery(sql).addEntity(User.class);
             query.executeUpdate();
@@ -95,7 +95,7 @@ public class UserDaoHibernateImpl implements UserDao, Serializable{
     public void cleanUsersTable() {
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            String sql = "TRUNCATE TABLE User";
+            String sql = "TRUNCATE TABLE user";
 
             Query query = session.createSQLQuery(sql).addEntity(User.class);
             query.executeUpdate();

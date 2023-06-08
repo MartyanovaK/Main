@@ -23,7 +23,7 @@ public class Main {
         userDao.removeUserById(1);
         userDao.getAllUsers();
         userDao.cleanUsersTable();
-////        userDao.dropUsersTable();
+        userDao.dropUsersTable();
 //         String testName = "Ivan";
 //         String testLastName = "Ivanov";
 //         byte testAge = 5;
